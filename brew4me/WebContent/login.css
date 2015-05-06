@@ -1,0 +1,150 @@
+.width
+{
+	width: 80%;
+}
+
+.stretchButton
+{
+	position: relative;
+	top: 2px;
+	width: 198px;
+}
+
+.centerLoginFields
+{
+	width: 200px;
+    height: 100px;
+
+    position: relative;
+    top: 65px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.centerCreatUser
+{
+	width: 200px;
+    height: 100px;
+
+    position: relative;
+    top: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+	
+}
+
+.infoPopup
+{
+	width: 400px;
+    height: 200px;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    z-index: 2;
+}
+
+.adjustSize
+{
+	font-size: 150px;
+	
+	position: relative;
+    top: 35px;
+    bottom: 0;
+
+    margin: auto;
+    
+}
+
+.highlight:hover
+{
+	outline-style: solid;
+	outline-color: gray;
+	outline-width: 1px;
+	
+}
+
+.highlight:active
+{
+	outline-style: solid;
+	outline-color: black;
+	outline-width: 1px;
+	
+}
+
+#close:hover
+{
+	color: white;
+}
+
+#close:active
+{
+	color: gray;
+}
+
+.shadow
+{
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.padding
+{
+	width: 1000px;
+    height: 300px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+
+}
+
+.welcome
+{
+	width: 497px;
+	height: 100px;
+	
+	position: absolute;
+    left: 0;
+    right: 0;
+    
+    top: -30%;
+    
+    margin: auto;
+    z-index: -1;
+}
+
+.panel-content
+{
+	height: 1000px;
+}
+
+.hidden
+{
+	visibility: hidden;
+}
+
+.errorText
+{
+	color: red;
+}
+
+.overflowScroll
+{
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+

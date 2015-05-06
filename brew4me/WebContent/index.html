@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Brew4me</title>
+		<script src="jquery-1.11.2.min.js"></script>
+		<script src="MainJavaScript.js"></script>
+		<script src="drinkWizard.js"></script>
+		
+		<!-- <script src="Metro-UI-CSS-master/docs/js/jquery/jquery.min.js"></script> -->
+		<script src="Metro-UI-CSS-master/docs/js/jquery/jquery.widget.min.js"></script>
+		<script src="Metro-UI-CSS-master/docs/js/jquery/jquery.mousewheel.js"></script>
+		<script src="Metro-UI-CSS-master/docs/js/metro.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="Metro-UI-CSS-master/docs/css/metro-bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="Metro-UI-CSS-master/docs/css/metro-bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="Metro-UI-CSS-master/docs/css/iconFont.css">
+		
+		<link rel="stylesheet" type="text/css" href="main.css">
+		
+		<link rel="icon" type="image/png" href="beer_mug.png">
+		
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+		
+	</head>
+	<body class="metro">
+		<nav class="navigation-bar">
+			<div class="navigation-bar-content">
+		         <a href="#" class="element homeNav"><span class="icon-home"></span> Brew4me</a>
+		         <span class="element-divider"></span>
+		         
+		         <a href="#" class="element searchBeerNav"><img src="beer_mug.png">Find Beer</a>
+				 <span class="element-divider"></span>
+				 
+				 <a href="#" class="element searchWineNav"><img src="wine.png" height="20" width="20">Find Wine</a>
+				 <span class="element-divider"></span>
+				 
+				 <a href="#" class="element drinkWizardNav"><i class="icon-lightning"></i>&nbsp;Drink Wizard</a>
+				 <span class="element-divider"></span>
+				 
+				 <a href="#" class="element recommendNav"><i class="icon-help-2"></i>&nbsp;Get Recommendation</a>
+				 <span class="element-divider"></span>
+		
+		         <div class="no-tablet-portrait">
+		             
+		
+		             <div class="element input-element place-right">
+		                 <form>
+		                     <div class="input-control text">
+		                         <input type="text" placeholder="Search...">
+		                         <button class="btn-search"></button>
+		                     </div>
+		                 </form>
+		             </div>
+		             
+		             <span class="element-divider place-right"></span>
+		             <a href="/brew4me/logout.jsp" class="element place-right">Logout</a>
+				 	 
+		
+		             <span class="element-divider place-right"></span>
+		             <button class="element place-right userProfile">
+		                 <span id="username"></span>
+		             </button>
+		             <span class="element-divider place-right"></span>
+		             
+		             <a href="/brew4me/admin.html" class="element place-right adminElement">Admin</a>
+		    	     <span class="element-divider place-right adminElement"></span>
+		             
+		             
+		         </div>
+		     </div>
+		 </nav>
+		 
+		 <br/>
+		 
+		 <!-- <img src="http://www.drinkinginamerica.com/wp-content/uploads/2012/09/Drinking-Dogs-Need-A-Beer.jpg"/> -->
+		 <div class="centralGroup">
+			 <div class="home allPages marginHome">
+                 <form>
+                     <div class="input-control text">
+                         <input name="search" class="place-left" type="text" placeholder="Search...">
+                         <button class="btn-search"></button>
+                     </div>
+                     <center><strong><a id="advanceSearchLink" href="#">Advanced Search</a></strong></center>
+                     <br/>
+                     <div class="advancedSearch allPages">
+                     	<div class="input-control text">
+                        	<input name="" class="place-left" type="text" placeholder="Advanced Options...">
+                     	</div>
+                     	<div class="input-control text">
+                        	<input name="" class="place-left" type="text" placeholder="Advanced Options...">
+                     	</div>
+                     	<div class="input-control text">
+                        	<input name="" class="place-left" type="text" placeholder="Advanced Options...">
+                     	</div>
+                     	<div class="input-control text">
+                        	<input name="" class="place-left" type="text" placeholder="Advanced Options...">
+                     	</div>
+                     	<div class="input-control text">
+                        	<input name="" class="place-left" type="text" placeholder="Advanced Options...">
+                     	</div>
+                     </div>
+                 </form>
+			 </div>
+			 <div class="searchBeer allPages">
+			 
+			 	<h3>Select the options you want and click find me a beer</h3>
+			 	<h5>1. Choose a Color</h5>
+			 	<form id="newUserForm" action="findBeer" method="POST" ">
+				 	<center>
+					 	<div id="colorAppend" class="colorPicker"></div>
+				 	</center>
+				 	
+				 	<h5>2. Choose a range of Alcohol By Volume (ABV)</h5>
+				 	<label for="anyAbv">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="abvRadio" id="anyAbv" value="anyAbv" checked>&nbsp;Any</label>
+					<label for="lowAbv">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="abvRadio" id="lowAbv" value="lowAbv">&nbsp;0% - 3%</label>
+					<label for="midAbv">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="abvRadio" id="midAbv"  value="midAbv">&nbsp;4% - 6%</label>
+					<label for="highAbv">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="abvRadio" id="highAbv"  value="highAbv">&nbsp;7%+</label>
+					
+					<h5>3. Choose a Mouthfeel</h5>
+					<label for="anyMouth">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="mouthRadio" id="anyMouth" value="anyMouth" checked>&nbsp;Any</label>
+					<label for="lightMouth">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="mouthRadio" id="lightMouth" value="light">&nbsp;Light</label>
+					<label for="mediumMouth">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="mouthRadio" id="mediumMouth"  value="medium">&nbsp;Medium</label>
+					<label for="heavyMouth">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="mouthRadio" id="heavyMouth"  value="heavy">&nbsp;Heavy</label>
+					
+					<h5>4. Choose a Price Range</h5>
+					<label for="amount">&nbsp;&nbsp;&nbsp;&nbsp;Price range: <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"></label>
+					<div id="slider-range"></div>
+					
+					<h5>5. Choose a Style</h5>
+					<label for="anyStyle">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="styleRadio" id="anyStyle" value="anyStyle" checked>&nbsp;Any</label>
+					<label for="lagerStyle">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="styleRadio" id="lagerStyle" value="lager">&nbsp;Light</label>
+					<label for="aleStyle">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="styleRadio" id="aleStyle"  value="ale">&nbsp;Medium</label>
+					<label for="otherStyle">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="styleRadio" id="otherStyle"  value="other">&nbsp;Heavy</label>
+					
+					
+					
+					<h5>6. Choose a Rating</h5>
+					<label for="1Rate">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="rateCheck" id="1Rate" value="1Rate">&nbsp;
+						<i class="icon-star-3"></i>
+						<i class="icon-star"></i>
+						<i class="icon-star"></i>
+						<i class="icon-star"></i>
+						<i class="icon-star"></i>
+					</label>
+					<label for="2Rate">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="rateCheck" id="2Rate" value="2Rate">&nbsp;
+						<i class="icon-star-3"></i>
+						<i class="icon-star-3"></i>
+						<i class="icon-star"></i>
+						<i class="icon-star"></i>
+						<i class="icon-star"></i>
+					</label>
+					<label for="3Rate">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="rateCheck" id="3Rate"  value="3Rate">&nbsp;
+						<i class="icon-star-3"></i>
+						<i class="icon-star-3"></i>
+						<i class="icon-star-3"></i>
+						<i class="icon-star"></i>
+						<i class="icon-star"></i>
+					</label>
+					<label for="4Rate">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="rateCheck" id="4Rate"  value="4Rate">&nbsp;
+						<i class="icon-star-3"></i>
+						<i class="icon-star-3"></i>
+						<i class="icon-star-3"></i>
+						<i class="icon-star-3"></i>
+						<i class="icon-star"></i>
+					</label>
+					<label for="5Rate">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="rateCheck" id="5Rate"  value="5Rate">&nbsp;
+						<i class="icon-star-3"></i>
+						<i class="icon-star-3"></i>
+						<i class="icon-star-3"></i>
+						<i class="icon-star-3"></i>
+						<i class="icon-star-3"></i>
+					</label>
+					
+					<input type="text" id="colorCode" name="colorCode" class="allPages" value="">
+					<input type="text" id="minPrice" name="minPrice" class="allPages" value="">
+					<input type="text" id="maxPrice" name="maxPrice" class="allPages" value="">
+					
+					<br/>
+					<br/>
+					
+					<input type="submit" value="Find Me a Beer!">
+				</form>
+			 </div>
+			 <div class="searchWine allPages">
+			 	wine
+			 </div>
+			 <div class="drinkWizard allPages">
+			 		<div id="wizardStep" class="stepper" style="width: 200px;" data-steps="5" data-role="stepper" data-start="1"></div>
+			 		<br/>
+			 		<br/>
+			 		<br/>
+			 		<div class="question q1">
+			 			<center>
+			 				<h4>Choose One</h4>
+				 			<br/>
+				 			<button class="shortcut link fg-cyan bg-cyan beerQuestion">
+				 				<img src="beer_mug.png"><br/>
+				 				Beer
+			                </button>
+			                <button class="shortcut link wineQuestion">
+			                	<img src="wine.png"><br/>
+			                	Wine
+			                </button>
+		                </center>
+			 		</div>
+			 		<div class="question q2">
+			 			<center>
+			 				<h4>Choose One</h4>
+				 			<br/>
+				 			<button class="shortcut link fg-cyan bg-cyan sweetQ">
+				 				<img src="candy.png"><br/>
+				 				Sweet
+			                </button>
+			                <button class="shortcut link mediumQ">
+			                	<img src="http://www.atlantismaps.com/forum/Smileys/HairSmileys/undecided.gif"><br/>
+			                	Medium<br/>
+			                	(Deciding is hard!)
+			                </button>
+			                <button class="shortcut link bitterQ">
+			                	<img src="coffee.png" height="30" width="30"><br/>
+			                	Bitter
+			                </button>
+		                </center>
+			 		</div>
+			 		<div class="question q3">
+			 			<center>
+			 				<h4>Choose One</h4>
+			 				<div id="wrongChoice"></div>
+			 				<br/>
+				 			<button class="shortcut link fg-cyan bg-cyan dogQ">
+				 				<img src="dog.png" height="70" width="70"><br/>
+				 				Dog
+			                </button>
+			                <button class="shortcut link noneQ">
+			                	<img src="confused.png"><br/>
+			                	None
+			                </button>
+			                <button class="shortcut link catQ">
+			                	<img src="cat.png"><br/>
+			                	Cat
+			                </button>
+		                </center>
+			 		</div>
+			 		<div class="question q4">
+			 			<center>
+			 				<h4>What Kind of Night Will it be?</h4>
+				 			<br/>
+				 			<button class="shortcut link fg-cyan bg-cyan yolo">
+				 				<img src="drunk.jpg" height="70" width="70"><br/>
+				 				YOLO!
+			                </button>
+			                <button class="shortcut link calm">
+			                	<img src="drinkBeer.png"><br/>
+			                	Calm
+			                </button>
+			                <button class="shortcut link crazy">
+			                	<img src="https://www.scenemusic.net/static/emoticons/s/anim_drunk.gif"><br/>
+			                	Crazy
+			                </button>
+			                <button class="shortcut link casual">
+			                	<img src="casual.jpeg"><br/>
+			                	Casual
+			                </button>
+		                </center>
+			 		
+			 		</div>
+			 		<div class="question q5">
+			 		
+			 		</div>
+			 		<div class="question q6">
+			 		
+			 		</div>
+			 		<div class="question q7">
+			 		
+			 		</div>
+			 		<div class="question q8">
+			 		
+			 		</div>
+			 		<div class="question q9">
+			 		
+			 		</div>
+			 		<div class="question q10">
+			 		
+			 		</div>
+			 		<div class="question q11">
+			 		
+			 		</div>
+			 		<div class="question q12">
+			 		
+			 		</div>
+			 		<div class="question q13">
+			 		
+			 		</div>
+			 		<div class="question q14">
+			 		
+			 		</div>
+			 		<div class="question q15">
+			 		
+			 		</div>
+			 		<div class="question q16">
+			 		
+			 		</div>
+			 		<br/>
+			 </div>
+			 <div class="recommend allPages">
+				 <div class="grid fluid">
+				    <div class="span24">
+				    	<div class="panel">
+		                     <div class="panel-header bg-cyan">
+		                         Enter Your Name
+		                     </div>
+		                     <div class="panel-content">
+		                         <input type="text" id="userName" />
+		        				 <input id="clickMe" type="button" value="clickme" />
+		                     </div>
+		                 </div>
+					</div>
+					<div class="span24">
+						<div class="panel">
+		                     <div class="panel-header bg-cyan">
+		                         Ajax Response
+		                     </div>
+		                     <div class="panel-content">
+			                     <table class="table striped bordered hovered">
+					                <thead>
+					                <tr>
+					                    <th class="text-center">Beer Name</th>
+					                    <th class="text-center">Brewery Name</th>
+					                    <th class="text-center">Style</th>
+					                    <th class="text-center">ABV</th>
+					                    <th class="text-center">Color</th>
+					                    <th class="text-center">Mouthfeel</th>
+					                    <th class="text-center">Price</th>
+					                </tr>
+					                </thead >
+					                <tbody id="ajaxGetUserServletResponse">
+					                	
+					                </tbody>
+					            </table>
+		                     </div>
+		                 </div>
+					</div>
+					<div class="span24">
+						<div class="panel">
+		                     <div class="panel-header bg-cyan">
+		                         TEST GET/POST
+		                     </div>
+		                     <div class="panel-content">
+		                        <form action="javaForm" method="get">
+									Type Name:<input type="text" name="username">
+									Type Email:<input type="text" name="useremail">
+									<input type="submit" value="GET">
+								</form>
+								
+								<br/>
+								
+								<form action="javaForm" method="post">
+									Type Name:<input type="text" name="username">
+									Type Email:<input type="text" name="useremail">
+									<input type="submit" value="POST">
+								</form>
+		                     </div>
+		                 </div>
+					</div>
+				</div>
+			</div>
+			<div class="userProfile allPages">
+				<button id="deleteAccount" class="deleteAccount bg-red">Delete My Account</button>
+				<br/>
+				<br/>
+				<h4>Add Beer</h4>
+				<hr>
+				<form>
+					<input type="text" placeholder="Beer Name">
+					<input type="text" placeholder="Brewery Name">
+					<input type="text" placeholder="Style">
+					<input type="text" placeholder="Color (1 - 40)">
+					<input type="text" placeholder="Mouthfeel">
+					<input type="text" placeholder="Price">
+					<input type="text" placeholder="ABV">
+					<input type="text" placeholder="Price">
+					<input type="text" placeholder="Flavor1,flavor2,flavor3...">
+					<input type="submit" value="Add Beer">
+				</form>
+				
+				<h4>Add Wine</h4>
+				<hr>
+				<form>
+					<input type="text" placeholder="Beer Name">
+					<input type="text" placeholder="Brewery Name">
+					<input type="text" placeholder="Style">
+					<input type="text" placeholder="Color (1 - 40)">
+					<input type="text" placeholder="Mouthfeel">
+					<input type="text" placeholder="Price">
+					<input type="text" placeholder="ABV">
+					<input type="text" placeholder="Price">
+					<input type="text" placeholder="Flavor1,flavor2,flavor3...">
+					<input type="submit" value="Add Beer">
+				</form>
+			</div>
+			<!-- Central div -->
+		</div>
+	</body>
+</html>

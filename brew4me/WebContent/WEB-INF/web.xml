@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <!-- Example for servlet -->
+  <servlet>
+  	<servlet-name>TEST</servlet-name>
+  	<servlet-class>brew4me.servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TEST</servlet-name>
+  	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Example of Form Submission -->
+  <servlet>
+  	<servlet-name>FormTest</servlet-name>
+  	<servlet-class>brew4me.javaForm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FormTest</servlet-name>
+  	<url-pattern>/javaForm</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Example of Database -->
+  <display-name>TomcatJDBCExample</display-name>  
+  <resource-ref>
+    <description>JDBC</description>
+	<res-ref-name>jdbc/Brew4meDB</res-ref-name>
+	<res-type>javax.sql.DataSource</res-type>
+	<res-auth>Container</res-auth>
+  </resource-ref>
+	  
+  <!-- <servlet>
+    <servlet-name>TomcatJDBC</servlet-name>
+    <servlet-class>brew4me.TomcatServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TomcatJDBC</servlet-name>
+    <url-pattern>/QueryBeer</url-pattern>
+  </servlet-mapping> -->
+  
+  <!-- Security and Authentication -->
+  	<!-- Types of security roles available -->
+  	<security-role>
+        <role-name>user</role-name>
+    </security-role>
+    
+    <!-- Restricted pages -->
+    <security-constraint>
+        <display-name>HomepageConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>brew4me</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+    </security-constraint>
+    
+    <!-- exclude these docs from security constraint -->
+    <security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>brew4me</web-resource-name>
+	        <url-pattern>/Metro-UI-CSS-master/*</url-pattern>
+	    </web-resource-collection>
+	</security-constraint>
+	<security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>brew4me</web-resource-name>
+	        <url-pattern>/jquery-1.11.2.min.js</url-pattern>
+	    </web-resource-collection>
+	</security-constraint>
+	<security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>brew4me</web-resource-name>
+	        <url-pattern>/login.html</url-pattern>
+	    </web-resource-collection>
+	</security-constraint>
+	<security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>brew4me</web-resource-name>
+	        <url-pattern>/login.css</url-pattern>
+	    </web-resource-collection>
+	</security-constraint>
+	<security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>brew4me</web-resource-name>
+	        <url-pattern>/login.js</url-pattern>
+	    </web-resource-collection>
+	</security-constraint>
+	<security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>brew4me</web-resource-name>
+	        <url-pattern>/images/beer_mug.png</url-pattern>
+	    </web-resource-collection>
+	</security-constraint>
+	<security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>brew4me</web-resource-name>
+	        <url-pattern>/QueryUser</url-pattern>
+	    </web-resource-collection>
+	</security-constraint>
+	<security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>brew4me</web-resource-name>
+	        <url-pattern>/validateEmail</url-pattern>
+	    </web-resource-collection>
+	</security-constraint>
+	<security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>brew4me</web-resource-name>
+	        <url-pattern>/newUserFormCheck.js</url-pattern>
+	    </web-resource-collection>
+	</security-constraint>
+	<security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>brew4me</web-resource-name>
+	        <url-pattern>/logout.css</url-pattern>
+	    </web-resource-collection>
+	</security-constraint>
+    
+    <!-- Authentication Method -->
+    <login-config>
+    	<auth-method>FORM</auth-method>
+    	<form-login-config>
+	        <form-login-page>/login.html</form-login-page>
+	        <form-error-page>/error.html</form-error-page>
+	    </form-login-config>
+	</login-config>
+  
+  <!-- Other Information -->
+  <display-name>test</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

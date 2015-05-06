@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Admin</title>
+	
+		<script src="jquery-1.11.2.min.js"></script>
+		<script src="admin.js"></script>
+		
+		<script src="Metro-UI-CSS-master/docs/js/jquery/jquery.widget.min.js"></script>
+		<script src="Metro-UI-CSS-master/docs/js/jquery/jquery.mousewheel.js"></script>
+		<script src="Metro-UI-CSS-master/docs/js/metro.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="admin.css">
+		
+		<link rel="stylesheet" type="text/css" href="Metro-UI-CSS-master/docs/css/metro-bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="Metro-UI-CSS-master/docs/css/metro-bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="Metro-UI-CSS-master/docs/css/iconFont.css">
+		
+		<link rel="icon" type="image/png" href="beer_mug.png">
+
+
+</head>
+<body class="metro">
+	<div class="paddingBody grid">
+		<a href="/brew4me/">Return Home</a>
+		<div class="row">
+			<div class="span4">
+				<h3>Admin</h3>
+				
+				<a id="beer" class="getTable" href="#">Edit Beer</a>&nbsp;|
+				<a id="beerflavors" class="getTable" href="#">Edit Beer Flavor</a>&nbsp;|
+				<a id="beerhas" class="getTable" href="#">Edit Beer Has</a>&nbsp;|
+				<br/>
+				
+				<a id="beerrates" class="getTable" href="#">Edit Beer Rates</a>&nbsp;|
+				<a id="brewery" class="getTable" href="#">Edit Brewery</a>&nbsp;|
+				<a id="person" class="getTable" href="#">Edit Person</a>&nbsp;|
+				<br/>
+				
+				<a id="user_roles" class="getTable" href="#">Edit User Roles</a>&nbsp;|
+				<a id="vineyard" class="getTable" href="#">Edit Vineyard</a>&nbsp;|
+				<a id="wine" class="getTable" href="#">Edit Wine</a>&nbsp;|
+				<br/>
+				
+				<a id="wineflavors" class="getTable" href="#">Edit Wine Flavors</a>&nbsp;|
+				<a id="winehas" class="getTable" href="#">Edit Wine Has</a>
+				<br/>
+				<a id="winerates" class="getTable" href="#">Edit Wine Rates</a>
+				<br/>
+				
+				<form>
+					<textarea name="querySubmit" rows="4" cols="40"></textarea>
+					<br/>
+					<input type="submit" value="Submit Query">
+				</form>
+				<form>
+					<fieldset>
+						<legend>Selected</legend>
+						Name: <input type="text"><br>
+						Email: <input type="text"><br>
+						Date of birth: <input type="text"><br>
+						<input type="submit" value="delete">
+						<input type="submit" value="update">
+					</fieldset>
+				</form>
+			</div>
+			<div class="span12 border console">
+				<center><h4>CONSOLE</h4></center>
+				<hr>
+				<div id="console_out">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

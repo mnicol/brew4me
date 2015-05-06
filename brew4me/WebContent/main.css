@@ -1,0 +1,128 @@
+body 
+{
+   /*  background-color: #F1F1F1; */
+}
+
+.userProfile
+{
+	padding:10px;
+}
+
+
+.colorElement
+{
+	display: inline-block;
+	height: 40px;
+	width: 2%;
+	
+	margin-right: 0px;
+}
+
+.colorSelected
+{
+	border: solid 3px #1BA1E2;
+}
+
+
+.sliderWidth
+{
+	width: 200px;
+}
+
+.colorPickerColor
+{
+	display: block;
+	height: 100px;
+	width: 200px;
+	border: 1px solid #C6C6C6;
+}
+
+.searchBeer
+{
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom:	30px;
+	margin-bottom: 40px;
+}
+
+a:visited 
+{
+	color: #2e92cf;
+}
+
+.color1
+   {
+   		background-color: pink;
+   }
+  
+.home
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+.drinkWizard
+{
+	padding: 10px;
+}
+
+#wizardStep
+{
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	margin: auto;
+}
+
+.question
+{
+	style: block;
+	height: 200px;
+	width: 80%;
+
+	border: 1px solid #666666;
+	
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	padding: 10px;
+	
+	margin: auto;
+}
+
+.marginHome
+{
+	margin-top: 20%;
+}
+   
+.centralGroup
+{
+	width: 85%;
+	height: auto;
+	
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	margin: auto;
+	  
+	box-shadow: 1px 1px 5px #888888;
+}
+
+#slider-range
+{
+	position: relative;
+	left: 18px;
+	width: 30%;
+	
+}

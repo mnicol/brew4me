@@ -1,0 +1,18 @@
+.paddingBody
+{
+	padding: 10px;
+	padding-left: 20px;
+}
+
+.border
+{
+	border-style: solid;
+	border-width: 1px;
+}
+
+.console
+{
+	height: 550px;
+	width: auto;
+	overflow-x: auto;
+}

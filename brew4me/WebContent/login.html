@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Login</title>
+	
+	<script src="jquery-1.11.2.min.js"></script>
+	
+	<!-- <script src="Metro-UI-CSS-master/docs/js/jquery/jquery.min.js"></script> -->
+	<script src="Metro-UI-CSS-master/docs/js/jquery/jquery.widget.min.js"></script>
+	<script src="Metro-UI-CSS-master/docs/js/jquery/jquery.mousewheel.js"></script>
+	<script src="Metro-UI-CSS-master/docs/js/metro.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="Metro-UI-CSS-master/docs/css/metro-bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="Metro-UI-CSS-master/docs/css/metro-bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="Metro-UI-CSS-master/docs/css/iconFont.css">
+	
+	<link rel="stylesheet" type="text/css" href="login.css">
+	
+	<link rel="icon" type="image/png" href="/images/beer_mug.png">
+	
+	<script src="login.js"></script>
+	
+</head>
+
+<body class="metro padding">
+	<div class="welcome">
+		<h1>Welcome to Brew4me</h1>
+	</div>
+	<div class="width grid fluid">
+	    <div class="row">
+	        <div class="span4">
+	        	<div class="panel shadow">
+	                   <div class="panel-header bg-cyan">
+	                       Existing User Login
+	                   </div>
+	                   <div class="panel-content">
+	                   		<div class="centerLoginFields">
+			                   	<form id="loginForm" method=post action="j_security_check" >
+			                   		<div class="input-control text" data-role="input-control">
+								    	<input id="username" type="email" name="j_username" placeholder="Email Address" >
+								    </div>
+								    <div class="input-control text" data-role="input-control">
+								    	<input id="password" type="password" name="j_password" placeholder="Password" >
+								    </div><br/>
+								    <input type="submit" class="stretchButton" value="Login">
+								</form>
+								<br/>
+								<br/>
+								<a href="#">Forgot your password?</a>
+							</div>
+	                   </div>
+	               </div>
+	        </div>
+	        <div class="span4">
+	        	<div class="panel shadow">
+	                   <div class="panel-header bg-cyan">
+	                       Create An Account
+	                   </div>
+	                   <div class="panel-content overflowScroll">
+	                   		<!-- Script must go here -->
+	                   		<script src="newUserFormCheck.js"></script>
+							<!-- <button id="submitAjax">Submit Ajax</button> -->
+	                   		<div class="centerCreatUser">
+	                   			<div class="errorText submitError"><strong><i class="icon-cancel-2"></i>&nbsp;Something went wrong creating the new user. Please check that all the fields are filled out correctly.</strong></div>
+			                   	<form id="newUserForm" action="QueryUser" method="post" onsubmit="return validateForm();" >
+			                   		<div id="emailHighlight" class="input-control text" data-role="input-control">
+								    	<input id="email" required="required" name="email" type="email" onblur="checkEmail()" placeholder="Enter Email Address" >
+								    	<div class="errorText emailError"><strong><i class="icon-cancel-2"></i>&nbsp;Email already exists or was not entered in.</strong></div>
+								    </div>
+								    <div id="emailMatchHighlight" class="input-control text" data-role="input-control">
+								    	<input id="emailMatch" required="required" type="email" onblur="checkEmailMatch()" placeholder="Confirm Email Address" >
+								    	<div class="errorText emailMatchError"><strong><i class="icon-cancel-2"></i>&nbsp;Emails did not match.</strong></div>
+								    </div>
+								    <div id="nameHighlight" class="input-control text" data-role="input-control">
+								    	<input id="name" name="name" required="required" type="text" placeholder="Enter Full Name" >
+								    	<div class="errorText nameError"><strong><i class="icon-cancel-2"></i>&nbsp;Please enter your name.</strong></div>
+								    </div>
+								    <div id="passwordHighlight" class="input-control text " data-role="input-control">
+								    	<input id="password" name="password" required="required" type="password" placeholder="Password" >
+								    	<div class="errorText passwordError"><strong><i class="icon-cancel-2"></i>&nbsp;Please enter a password.</strong></div>
+								    </div>
+								    <div id="cityHighlight" class="input-control text " data-role="input-control">
+								    	<input id="city" name="city" required="required" type="text"placeholder="City">
+								    	<div class="errorText cityError"><strong><i class="icon-cancel-2"></i>&nbsp;Please enter your city.</strong></div>
+								    </div>
+								    <div id="state_providenceHighlight" class="input-control text " data-role="input-control">
+								    	<input id="state_providence" required="required" name="state_providence" type="text" placeholder="State or Providence" >
+								    	<div class="errorText stateError"><strong><i class="icon-cancel-2"></i>&nbsp;Please enter your state or providence.</strong></div>
+								    </div>
+								    <div id="countryHighlight" class="input-control text " data-role="input-control">
+								    	<input id="country" name="country" required="required" type="text" placeholder="Country" >
+								    	<div class="errorText countryError"><strong><i class="icon-cancel-2"></i>&nbsp;Please enter a country.</strong></div>
+								    </div>
+								    <br/>
+								    <input type="submit" class="stretchButton" value="Create">
+								</form>
+							</div>
+	                   </div>
+	               </div>
+	        </div>
+	        <div class="span4">
+	           <div class="panel shadow">
+                   <div class="panel-header bg-cyan">
+                       Continue As Guest
+                   </div>
+                   <div class="panel-content">
+                   		<center><i id="guestLogin" class="icon-user fg-cyan on-right on-left adjustSize highlight"></i></center>
+                   		<form id="loginFormHidden" class="hidden" method=post action="j_security_check" >
+						    <input id="usernameHidden" type="text" name="j_username" >
+						    <input id="passwordHidden" type="password" name="j_password"><br/>
+						</form>
+						<br/>
+	                   	<center><a id="whyAccount" href="#">Why should I create an account?</a></center>
+                  		</div>
+               </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="panel shadow infoPopup bg-white hidden">
+    	<div class="panel-header bg-cyan">
+                 Account Creation
+                 <i id="close" class="icon-cancel place-right"></i>
+     	</div>
+        <div class="panel-content">
+   			Creating an account gives you a lot of benefits that logging in as a guest doesnt give you including...
+   			<ul>
+   				<li>Personalized Selection Based on Past Likes</li>
+   				<li>Saving Favorite Drinks</li>
+   				<li>Rating Your Favorite Drinks</li>
+   				<li>Hiding Drinks You Don't Like</li>
+   			</ul>
+     	</div>
+	</div>
+</body>
+</html>
